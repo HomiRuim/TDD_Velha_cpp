@@ -8,9 +8,7 @@
  *  Descrever o que a funcao faz
  */
 
-#include "velha.hpp"
+#include "TDD_velha/velha.hpp"
 
-int VerificaVelha( int velha[3][3] )
-{
-	return 0; /*!< retorna zero para teste */
-}
+int VerificaVelha(int velha[3][3]) {
+    return 0; /*!< retorna zero para teste */}
