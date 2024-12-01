@@ -13,8 +13,8 @@
 #include <gtest/gtest.h>
 
 TEST(VerificaVelhaTest, JogoIndefinido) {
-int teste1[3][3]= {{ 2, 0, 1 },
-                   { 2, 0, 1 },
-                   { 0, 2, 1 }};
-    EXPECT_EQ(VerificaVelha(teste1), 1);
+int teste1[3][3]= {{ 0, 0, 0 },
+                   { 0, 1, 0 },
+                   { 0, 0, 0 }};
+    EXPECT_EQ(VerificaVelha(teste1), -1);
 }
