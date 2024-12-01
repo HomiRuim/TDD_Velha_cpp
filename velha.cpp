@@ -14,7 +14,7 @@
 
 #include "velha.hpp"
 
-int VerificaVelha(int velha[3][3]) {
+int VerificaVelha(int velha[3][3]) { // verifica se o jogo é inválido 
     int xcount = 0;
     int ocount = 0;
     for (int i = 0; i < 3; ++i) {
@@ -28,4 +28,17 @@ int VerificaVelha(int velha[3][3]) {
     if ((xcount == 1 && ocount == 0) || (xcount == 0 && ocount == 1)) {
         return -1;
     }
-return 0; /*!< retorna zero para teste */}
+}
+
+int VerificaLinha(int velha[3][3]) {
+    for (int i = 0; i < 3; ++i) {
+        if (velha[i][1] && velha[i][2] && velha[i][3] == 1) {
+            return 1;
+        }
+    }
+    for (int i = 0; i < 3; ++i) {
+        if (velha[i][1] && velha[i][2] && velha[i][3] == 2) {
+            return 2;
+        }
+    }
+}

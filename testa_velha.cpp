@@ -18,3 +18,17 @@ int teste1[3][3]= {{ 0, 0, 0 },
                    { 0, 0, 0 }};
     EXPECT_EQ(VerificaVelha(teste1), -1);
 }
+
+TEST(VerificaLinhaTest1, VencedorX) {
+int teste1[3][3]= {{ 0, 0, 0 },
+                   { 0, 1, 0 },
+                   { 0, 0, 0 }};
+    EXPECT_EQ(VerificaLinha(teste1), 1);
+}
+
+TEST(VerificaLinhaTest2, VencedorO) {
+int teste1[3][3]= {{ 1, 2, 1 },
+                   { 2, 2, 2 },
+                   { 1, 2, 1 }};
+    EXPECT_EQ(VerificaLinha(teste1), 2);
+}
