@@ -8,13 +8,13 @@
  *  Descrever o que a funcao faz
  */
 
-#include "TDD_velha/velha.hpp"
+#include "velha.hpp"
 #define CATCH_CONFIG_MAIN
-#include "TDD_velha/catch.hpp"
+#include <gtest/gtest.h>
 
-TEST_CASE("Testa velha", "[single-file]") {
+TEST(VerificaVelhaTest, JogoIndefinido) {
 int teste1[3][3]= {{ 2, 0, 1 },
                    { 2, 0, 1 },
                    { 0, 2, 1 }};
-    REQUIRE(VerificaVelha(teste1) == 1);
+    EXPECT_EQ(VerificaVelha(teste1), 1);
 }

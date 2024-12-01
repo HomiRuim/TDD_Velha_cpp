@@ -8,7 +8,11 @@
  *  Descrever o que a funcao faz
  */
 
-#include "TDD_velha/velha.hpp"
+#ifndef SIGSTKSZ
+#define SIGSTKSZ 16384  // Valor típico em sistemas Unix/Linux
+#endif
+
+#include "velha.hpp"
 
 int VerificaVelha(int velha[3][3]) {
     return 0; /*!< retorna zero para teste */}
