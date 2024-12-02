@@ -42,3 +42,17 @@ int teste4[3][3]= {{ 1, 2, 2 },
                    { 1, 2, 0 }};
     REQUIRE(VerificaColuna(teste4) == 1);
 }
+
+TEST_CASE("VerificaDiagonal1", "[single-file]") {
+int teste5[3][3]= {{ 1, 2, 2 },
+                   { 1, 1, 2 },
+                   { 2, 2, 1 }};
+    REQUIRE(VerificaDiagonal(teste5) == 1);
+}
+
+TEST_CASE("VerificaDiagonal2", "[single-file]") {
+int teste6[3][3]= {{ 1, 1, 2 },
+                   { 1, 2, 1 },
+                   { 2, 2, 1 }};
+    REQUIRE(VerificaDiagonal(teste6) == 2);
+}

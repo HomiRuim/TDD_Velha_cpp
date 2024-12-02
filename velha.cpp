@@ -29,6 +29,7 @@ int VerificaVelha(int velha[3][3]) {  // verifica se o jogo é inválido
     if ((xcount == 1 && ocount == 0) || (xcount == 0 && ocount == 1)) {
         return -1;
     }
+    return 0;
 }
 
 int VerificaLinha(int velha[3][3]) {
@@ -51,6 +52,22 @@ int VerificaColuna(int velha[3][3]) {
         if (velha[0][j] == 2 && velha[1][j] == 2 && velha[2][j] == 2) {
             return 2;
         }
+    }
+    return 0;
+}
+
+int VerificaDiagonal(int velha[3][3]) {
+    if (velha[0][0] == 1 && velha[1][1] == 1 && velha[2][2] == 1) {
+        return 1;
+    }
+    else if (velha[0][2] == 1 && velha[1][1] == 1 && velha[2][0] == 1) {
+        return 1;
+    }
+    else if (velha[0][0] == 2 && velha[1][1] == 2 && velha[2][2] == 2) {
+        return 2;
+    }
+    else if (velha[0][2] == 2 && velha[1][1] == 2 && velha[2][0] == 2) {
+        return 2;
     }
     return 0;
 }
