@@ -7,28 +7,38 @@
  *
  *  Descrever o que a funcao faz
  */
-
+#include <bits/stdc++.h>
+#include <iostream>
 #include "velha.hpp"
+
 #define CATCH_CONFIG_MAIN
-#include <gtest/gtest.h>
+#include "catch.hpp"
 
-TEST(VerificaVelhaTest, JogoIndefinido) {
+
+TEST_CASE("VerificaVelha", "[single-file]") {
 int teste1[3][3]= {{ 0, 0, 0 },
                    { 0, 1, 0 },
                    { 0, 0, 0 }};
-    EXPECT_EQ(VerificaVelha(teste1), -1);
+    REQUIRE(VerificaVelha(teste1) == -1);
 }
 
-TEST(VerificaLinhaTest1, VencedorX) {
-int teste1[3][3]= {{ 0, 0, 0 },
+TEST_CASE("VerificaLinhaTest1", "[single-file]") {
+int teste2[3][3]= {{ 0, 0, 0 },
                    { 0, 1, 0 },
-                   { 0, 0, 0 }};
-    EXPECT_EQ(VerificaLinha(teste1), 1);
+                   { 1, 1, 1 }};
+    REQUIRE(VerificaLinha(teste2) == 1);
 }
 
-TEST(VerificaLinhaTest2, VencedorO) {
-int teste1[3][3]= {{ 1, 2, 1 },
+TEST_CASE("VerificaLinhaTest2", "[single-file]") {
+int teste3[3][3]= {{ 1, 2, 1 },
                    { 2, 2, 2 },
                    { 1, 2, 1 }};
-    EXPECT_EQ(VerificaLinha(teste1), 2);
+    REQUIRE(VerificaLinha(teste3) == 2);
+}
+
+TEST_CASE("VerificaColuna", "[single-file]") {
+int teste4[3][3]= {{ 1, 2, 2 },
+                   { 1, 1, 2 },
+                   { 1, 2, 0 }};
+    REQUIRE(VerificaColuna(teste4) == 1);
 }

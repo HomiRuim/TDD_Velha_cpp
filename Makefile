@@ -6,7 +6,7 @@ GCOVFLAGS = -fprofile-arcs -ftest-coverage
 all: testa_velha
 
 testa_velha: velha.o testa_velha.o
-	$(CXX) $(CXXFLAGS) $^ -o $@ $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $^ -o $@.exe
 
 velha.o: velha.cpp velha.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -17,14 +17,14 @@ testa_velha.o: testa_velha.cpp velha.hpp
 compile: testa_velha
 
 test: testa_velha
-	./testa_velha
+	./testa_velha.exe
 
 cpplint:
 	cpplint --exclude=catch.hpp *.cpp *.hpp
 
 gcov: testa_velha
 	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) -c velha.cpp -o velha.o
-	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) velha.o testa_velha.o -o testa_velha $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(GCOVFLAGS) velha.o testa_velha.o -o testa_velha
 	./testa_velha
 	gcov velha.cpp testa_velha.cpp
 
@@ -38,4 +38,4 @@ valgrind: testa_velha
 	valgrind --leak-check=yes --log-file=valgrind.rpt ./testa_velha
 
 clean:
-	rm -rf *.o *.exe *.gc* testa_velha testa_velha.o velha.o
+	del *.o *.exe *.gc* testa_velha testa_velha.exe testa_velha.o velha.o

@@ -13,12 +13,13 @@
 #endif
 
 #include "velha.hpp"
+#include <iostream>
 
-int VerificaVelha(int velha[3][3]) { // verifica se o jogo é inválido 
+int VerificaVelha(int velha[3][3]) {  // verifica se o jogo é inválido
     int xcount = 0;
     int ocount = 0;
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j)
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++)
             if (velha[i][j] == 1) {
                 xcount++;
             } else if (velha[i][j] == 2) {
@@ -31,14 +32,25 @@ int VerificaVelha(int velha[3][3]) { // verifica se o jogo é inválido
 }
 
 int VerificaLinha(int velha[3][3]) {
-    for (int i = 0; i < 3; ++i) {
-        if (velha[i][1] && velha[i][2] && velha[i][3] == 1) {
+    for (int i = 0; i < 3; i++) {
+        if (velha[i][0] == 1 && velha[i][1] == 1 && velha[i][2] == 1) {
             return 1;
         }
-    }
-    for (int i = 0; i < 3; ++i) {
-        if (velha[i][1] && velha[i][2] && velha[i][3] == 2) {
+        if (velha[i][0] == 2 && velha[i][1] == 2 && velha[i][2] == 2) {
             return 2;
         }
     }
+    return 0;
+}
+
+int VerificaColuna(int velha[3][3]) {
+    for (int j = 0; j < 3; j++) {
+        if (velha[0][j] == 1 && velha[1][j] == 1 && velha[2][j] == 1) {
+            return 1;
+        }
+        if (velha[0][j] == 2 && velha[1][j] == 2 && velha[2][j] == 2) {
+            return 2;
+        }
+    }
+    return 0;
 }
