@@ -29,6 +29,12 @@ int VerificaVelha(int velha[3][3]) {  // verifica se o jogo é inválido
     if ((xcount == 1 && ocount == 0) || (xcount == 0 && ocount == 1)) {
         return -1;
     }
+    if (xcount == 9 || ocount == 9) {
+        return -2;
+    }
+    if (xcount == 0 && ocount == 0) {
+        return 0;
+    }
     return 0;
 }
 
@@ -70,4 +76,18 @@ int VerificaDiagonal(int velha[3][3]) {
         return 2;
     }
     return 0;
+}
+
+int VerificaIndefinido(int velha[3][3]) {
+    if (VerificaLinha(velha) != 0 || VerificaColuna(velha) != 0 || VerificaDiagonal(velha) != 0) {
+        return 0;
+    }
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (velha[i][j] == 0) {
+                return 0;
+            }
+        }
+    }
+    return -2;
 }
